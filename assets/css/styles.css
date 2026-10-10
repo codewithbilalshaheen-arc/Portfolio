@@ -1,0 +1,156 @@
+/* Custom utilities or raw layout tweaks that complement Tailwind CSS */
+
+/* Dynamic blinking cursor for code blocks or terminal mockups */
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.terminal-cursor {
+    animation: blink 0.8s step-end infinite;
+}
+
+/* Scrollbar customization for the sandbox logging system */
+.scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Interactive transitions for clustering canvas dots */
+canvas {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* Custom dark transition delays */
+.transition-colors {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+
+/* Floating animation for profile pills */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.float-pill {
+    animation: float 3s ease-in-out infinite;
+}
+
+.float-pill:hover {
+    animation-play-state: paused;
+}
+
+/* ---------- Hero: staggered fade-up (transform + opacity only) ---------- */
+@keyframes fade-up {
+    from { opacity: 0; transform: translate3d(0, 16px, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.hero-in {
+    opacity: 0;
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--i, 0) * 90ms + 100ms);
+}
+
+
+/* ---------- Hero photo ---------- */
+/* Transparent cutout PNG: only the bottom edge dissolves into the page */
+.photo-blend {
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 78%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 78%, transparent 100%);
+}
+
+/* Photo that still has its own background: oval fade on all four edges.
+   The oval reaches full transparency before every edge, so no frame can show.
+   A second gradient fades the very top, where the hair sits close to the edge. */
+.photo-blend-oval {
+    -webkit-mask-image:
+        radial-gradient(ellipse 50% 54% at 50% 46%,
+            #000 0%, #000 45%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0.45) 75%,
+            rgba(0, 0, 0, 0.15) 90%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 10%, #000 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        radial-gradient(ellipse 50% 54% at 50% 46%,
+            #000 0%, #000 45%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0.45) 75%,
+            rgba(0, 0, 0, 0.15) 90%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 10%, #000 100%);
+    mask-composite: intersect;
+}
+
+/* ---------- Cursor ring (mouse devices only) ---------- */
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    will-change: transform;
+}
+
+.cursor.is-visible {
+    opacity: 1;
+}
+
+.cursor-inner {
+    width: 36px;
+    height: 36px;
+    margin: -18px 0 0 -18px;
+    border-radius: 9999px;
+    border: 1.5px solid rgba(2, 132, 199, 0.7);
+    background: rgba(2, 132, 199, 0);
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease;
+}
+
+.dark .cursor-inner {
+    border-color: rgba(56, 189, 248, 0.7);
+}
+
+.cursor.is-hover .cursor-inner {
+    transform: scale(1.7);
+    background: rgba(14, 165, 233, 0.12);
+}
+
+.cursor.is-down .cursor-inner {
+    transform: scale(0.75);
+}
+
+/* Never show on touch or non-hover devices */
+@media (hover: none), (pointer: coarse) {
+    .cursor {
+        display: none;
+    }
+}
+
+/* ---------- Reduced motion: no entrance, float or blink ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .hero-in {
+        animation: none;
+        opacity: 1;
+    }
+
+    .float-pill,
+    .terminal-cursor {
+        animation: none;
+    }
+}

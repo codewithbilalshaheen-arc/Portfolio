@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Bilal | Data Scientist: ML, NLP, RAG &amp; Agentic AI</title>
+    <meta name="description" content="Muhammad Bilal, a Data Science student and freelance data scientist building machine learning, NLP, RAG and agentic AI systems in Python.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+                        mono: ['Fira Code', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans transition-colors duration-300">
+
+    <!-- Header / Navbar -->
+    <header
+        class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Name -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <span
+                        class="text-xl font-bold bg-gradient-to-r from-brand-600 to-emerald-500 bg-clip-text text-transparent">
+                        Muhammad Bilal
+                    </span>
+                </div>
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center space-x-6 lg:space-x-8" aria-label="Primary">
+                    <a href="#about"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:scale-105 transition-all duration-300">About</a>
+                    <a href="#skills"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:scale-105 transition-all duration-300">Skills</a>
+                    <a href="#services"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:scale-105 transition-all duration-300">Services</a>
+                    <a href="#projects"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:scale-105 transition-all duration-300">Projects</a>
+                    <a href="#experience"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:scale-105 transition-all duration-300">Experience</a>
+                    <a href="#contact"
+                        class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:scale-105 transition-all duration-300">Contact</a>
+                    <a href="assets/docs/Muhammad_Bilal_CV.pdf" download="Muhammad_Bilal_CV.pdf" aria-label="Download CV (PDF)"
+                        class="inline-flex items-center gap-1.5 text-sm font-medium text-brand-600 dark:text-brand-400 hover:scale-105 transition-all duration-300">
+                        <i data-lucide="download" class="w-4 h-4" aria-hidden="true"></i> CV
+                    </a>
+                </nav>
+
+                <!-- Actions (Theme Toggle & Contact CTA) -->
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle"
+                        class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-brand-600 dark:hover:text-brand-400 hover:scale-110 transition-all duration-300 focus:outline-none"
+                        aria-label="Toggle Theme">
+                        <i data-lucide="sun" id="sun-icon" class="hidden h-5 w-5"></i>
+                        <i data-lucide="moon" id="moon-icon" class="h-5 w-5"></i>
+                    </button>
+                    <a href="#contact"
+                        class="hidden sm:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">
+                        Let's Talk
+                    </a>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button"
+                        class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 hover:scale-110 transition-all duration-300"
+                        aria-label="Open Menu">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+            <a href="#about"
+                class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-brand-600">About</a>
+            <a href="#skills"
+                class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-brand-600">Skills</a>
+            <a href="#services"
+                class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-brand-600">Services</a>
+            <a href="#projects"
+                class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-brand-600">Projects</a>
+            <a href="#experience"
+                class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-brand-600">Experience</a>
+            <a href="#contact"
+                class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-brand-600">Contact</a>
+            <a href="assets/docs/Muhammad_Bilal_CV.pdf" download="Muhammad_Bilal_CV.pdf"
+                class="block px-3 py-2 rounded-md text-base font-semibold text-brand-600 dark:text-brand-400 hover:bg-slate-50 dark:hover:bg-slate-900">Download CV</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+        class="relative overflow-hidden pt-20 pb-24 lg:pt-32 lg:pb-36 bg-gradient-to-b from-brand-50/50 via-transparent to-transparent dark:from-transparent">
+        <!-- Background decorative graphic (SVG mesh) -->
+        <div class="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply dark:mix-blend-screen">
+            <svg class="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
+                preserveAspectRatio="none">
+                <defs>
+                    <pattern id="grid" width="4" height="4" patternUnits="userSpaceOnUse">
+                        <path d="M 4 0 L 0 0 0 4" fill="none" stroke="currentColor" stroke-width="0.05"
+                            class="text-slate-300 dark:text-slate-800" />
+                    </pattern>
+                </defs>
+                <rect width="100" height="100" fill="url(#grid)" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Intro Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="hero-in inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-brand-100 text-brand-800 dark:bg-brand-900/40 dark:text-brand-300"
+                        style="--i:0">
+                        <span class="flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                        Available for freelance &amp; internships
+                    </div>
+                    <p class="hero-in font-mono text-sm text-brand-600 dark:text-brand-400" style="--i:1">Hi, I'm</p>
+                    <h1 class="hero-in text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight"
+                        style="--i:2">
+                        Muhammad Bilal.
+                    </h1>
+
+                    <!-- Typing role line (screen readers get the full list; animated text is hidden from them) -->
+                    <p class="hero-in text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 min-h-[1.75rem]"
+                        style="--i:3">
+                        <span class="sr-only">Data Scientist, NLP and RAG Builder, and Agentic AI Developer</span>
+                        <span aria-hidden="true">
+                            <span class="font-mono text-slate-400 dark:text-slate-500">&gt;</span>
+                            <span id="typewriter" class="font-mono text-brand-600 dark:text-brand-400 font-bold"></span><span
+                                class="terminal-cursor inline-block w-0.5 h-5 ml-0.5 align-middle bg-brand-600 dark:bg-brand-400"></span>
+                        </span>
+                    </p>
+
+                    <p class="hero-in text-slate-500 dark:text-slate-400 max-w-xl mx-auto lg:mx-0" style="--i:4">
+                        BS Data Science student at Air University and freelance data scientist. I build machine learning
+                        models, NLP pipelines, RAG systems and LLM agents in Python.
+                    </p>
+
+                    <div class="hero-in flex flex-col sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start gap-4 pt-2"
+                        style="--i:5">
+                        <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-xl text-white bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950">View My Work</a>
+                        <a href="assets/docs/Muhammad_Bilal_CV.pdf" download="Muhammad_Bilal_CV.pdf" aria-label="Download CV (PDF)" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 border border-slate-300 dark:border-slate-700 text-base font-semibold rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 hover:scale-105 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950">
+                            <i data-lucide="download" class="w-4 h-4" aria-hidden="true"></i> Download CV
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 border border-slate-300 dark:border-slate-700 text-base font-semibold rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 hover:scale-105 hover:border-brand-500 hover:text-brand-600 dark:hover:text-brand-400 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950">Hire Me</a>
+                    </div>
+
+                    <!-- Socials / Quick contact -->
+                    <div class="hero-in flex items-center justify-center lg:justify-start gap-6 pt-4 text-slate-400 dark:text-slate-500"
+                        style="--i:6">
+                        <a href="https://github.com/codewithbilalshaheen-arc" target="_blank" rel="noopener noreferrer"
+                            class="hover:text-brand-500 hover:scale-125 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded"
+                            title="GitHub" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-6 h-6" aria-hidden="true">
+                                <path
+                                    d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .31.21.67.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/muhammad-bilal-002618367" target="_blank"
+                            rel="noopener noreferrer"
+                            class="hover:text-brand-500 hover:scale-125 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded"
+                            title="LinkedIn" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-6 h-6" aria-hidden="true">
+                                <path
+                                    d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+                            </svg>
+                        </a>
+                        <a href="mailto:codewithbilalshaheen@gmail.com"
+                            class="hover:text-brand-500 hover:scale-125 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded"
+                            title="Email" aria-label="Email">
+                            <i data-lucide="mail" class="w-6 h-6" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Photo (fades into background) -->
+                <div class="hero-in lg:col-span-5 flex justify-center lg:justify-end" style="--i:3">
+                    <img src="assets/images/Profile_Photo.png" alt="Portrait of Muhammad Bilal" width="460" height="575"
+                        decoding="async" fetchpriority="high"
+                        class="photo-blend-oval w-full max-w-[380px] sm:max-w-[540px] aspect-[4/5] object-cover object-top">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about"
+        class="py-20 bg-slate-100/50 dark:bg-slate-900/30 border-t border-slate-200 dark:border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-14">
+                <span
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-brand-100 text-brand-800 dark:bg-brand-900/40 dark:text-brand-300">
+                    <i data-lucide="user" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                    About Me
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Bio Graphic/Profile -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative max-w-md w-full">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-brand-600 to-emerald-500 rounded-3xl rotate-3 scale-105 opacity-20 dark:opacity-40 blur-sm">
+                        </div>
+
+                        <div
+                            class="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
+                            <img src="assets/images/about.png" alt="Illustration of AI and data science" loading="lazy"
+                                class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="float-pill absolute -top-4 -left-4 sm:-left-8 bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-full pl-2 pr-4 py-2 shadow-lg flex items-center gap-2 hover:scale-110 transition-transform duration-300" style="animation-delay: 0s;">
+                            <span class="w-7 h-7 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-400">
+                                <i data-lucide="code-2" class="w-4 h-4" aria-hidden="true"></i>
+                            </span>
+                            <span class="text-sm font-bold text-white">Python</span>
+                        </div>
+
+                        <div class="float-pill absolute -bottom-4 -left-4 sm:-left-10 bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-full pl-2 pr-4 py-2 shadow-lg flex items-center gap-2 hover:scale-110 transition-transform duration-300" style="animation-delay: 1s;">
+                            <span class="w-7 h-7 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400">
+                                <i data-lucide="brain-circuit" class="w-4 h-4" aria-hidden="true"></i>
+                            </span>
+                            <span class="text-sm font-bold text-white">Scikit-learn</span>
+                        </div>
+
+                        <div class="float-pill absolute -bottom-4 -right-4 sm:-right-8 bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-full pl-2 pr-4 py-2 shadow-lg flex items-center gap-2 hover:scale-110 transition-transform duration-300" style="animation-delay: 1.5s;">
+                            <span class="w-7 h-7 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+                                <i data-lucide="database" class="w-4 h-4" aria-hidden="true"></i>
+                            </span>
+                            <span class="text-sm font-bold text-white">RAG</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Bio -->
+                <div class="lg:col-span-7 space-y-6">
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">
+                        Data science, <span
+                            class="bg-gradient-to-r from-emerald-500 to-brand-500 bg-clip-text text-transparent">NLP and agentic AI</span>
+                        built to work in practice
+                    </h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-300">
+                        I'm a Data Science student at Air University, Islamabad, and a freelance data scientist. I focus
+                        on machine learning, NLP, retrieval-augmented generation and LLM agents.
+                    </p>
+                    <p class="text-slate-500 dark:text-slate-400">
+                        I work in Python, from data preprocessing and model evaluation to RAG pipelines and agents that
+                        call tools. I care about clean, reproducible code and results that can be checked.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 border-brand-200 dark:border-brand-900 border hover:scale-105 hover:shadow-sm transition-all duration-300 cursor-default">Python</span>
+                        <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900 border hover:scale-105 hover:shadow-sm transition-all duration-300 cursor-default">Scikit-Learn</span>
+                        <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-900 border hover:scale-105 hover:shadow-sm transition-all duration-300 cursor-default">NLP</span>
+                        <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-900 border hover:scale-105 hover:shadow-sm transition-all duration-300 cursor-default">RAG</span>
+                        <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-900 border hover:scale-105 hover:shadow-sm transition-all duration-300 cursor-default">Pandas</span>
+                        <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 border hover:scale-105 hover:shadow-sm transition-all duration-300 cursor-default">SQL</span>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 pt-4">
+                        <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-center shadow-sm hover:shadow-md hover:scale-105 hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300"><span class="block text-2xl sm:text-3xl font-bold text-brand-600 dark:text-brand-400">3.0</span><span class="text-xs text-slate-500 dark:text-slate-400 font-medium">CGPA</span></div>
+                        <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-center shadow-sm hover:shadow-md hover:scale-105 hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300"><span class="block text-2xl sm:text-3xl font-bold text-brand-600 dark:text-brand-400">4</span><span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Core Focus Areas</span></div>
+                        <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-center shadow-sm hover:shadow-md hover:scale-105 hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300"><span class="block text-2xl sm:text-3xl font-bold text-brand-600 dark:text-brand-400">Open</span><span class="text-xs text-slate-500 dark:text-slate-400 font-medium">For Freelance Work</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-brand-100 text-brand-800 dark:bg-brand-900/40 dark:text-brand-300">
+                    <i data-lucide="wrench" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                    Skills
+                </span>
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">Technical Toolkit</h2>
+                <p class="text-lg text-slate-500 dark:text-slate-400">
+                    The methods and tools I use to turn data and text into working models and systems.
+                </p>
+            </div>
+
+            <!-- EDIT: delete any item you have not actually used -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 shadow-md hover:shadow-xl group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/40 flex items-center justify-center text-brand-600 dark:text-brand-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="brain" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">Machine Learning</h3>
+                    <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Scikit-Learn</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Regression &amp; Classification</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Clustering (K-Means)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Model Evaluation &amp; Tuning</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Pandas / NumPy</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 shadow-md hover:shadow-xl group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="messages-square" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">NLP &amp; LLMs</h3>
+                    <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Text Preprocessing &amp; Tokenization</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Text Classification</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Embeddings</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Prompt Engineering</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Transformers</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 shadow-md hover:shadow-xl group">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-950/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="bot" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">RAG &amp; Agentic AI</h3>
+                    <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Retrieval-Augmented Generation</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Vector Search</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> LLM Tool Calling</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Multi-Step Agents</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> LLM Evaluation</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 shadow-md hover:shadow-xl group">
+                    <div class="w-12 h-12 rounded-xl bg-rose-100 dark:bg-rose-950/50 flex items-center justify-center text-rose-600 dark:text-rose-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="terminal" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">Data &amp; Python</h3>
+                    <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> Python (OOP)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> SQL</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> EDA &amp; Visualization</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> REST APIs</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> Git &amp; Version Control</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services"
+        class="py-20 bg-slate-100/50 dark:bg-slate-900/30 border-t border-slate-200 dark:border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-brand-100 text-brand-800 dark:bg-brand-900/40 dark:text-brand-300">
+                    <i data-lucide="briefcase" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                    Freelance Services
+                </span>
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">What I Can Build for You</h2>
+                <p class="text-lg text-slate-500 dark:text-slate-400">
+                    Focused, code-based data and AI work, delivered with clear documentation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 shadow-md hover:shadow-xl group flex flex-col">
+                    <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/40 flex items-center justify-center text-brand-600 dark:text-brand-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="line-chart" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">ML Models &amp; Data Analysis</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Predictive models and clear analysis built on your data, from cleaning to evaluation.</p>
+                    <a href="#contact"
+                        class="mt-auto inline-flex items-center gap-1 text-sm font-bold text-brand-600 dark:text-brand-400 hover:scale-105 origin-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 rounded">
+                        Discuss this <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 shadow-md hover:shadow-xl group flex flex-col">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="messages-square" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">NLP &amp; Text Pipelines</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Text classification, extraction and analysis for reviews, tickets, documents and more.</p>
+                    <a href="#contact"
+                        class="mt-auto inline-flex items-center gap-1 text-sm font-bold text-emerald-600 dark:text-emerald-400 hover:scale-105 origin-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 rounded">
+                        Discuss this <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 shadow-md hover:shadow-xl group flex flex-col">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-950/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="database" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">RAG Chatbots</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Assistants that answer questions from your own documents, with sources.</p>
+                    <a href="#contact"
+                        class="mt-auto inline-flex items-center gap-1 text-sm font-bold text-indigo-600 dark:text-indigo-400 hover:scale-105 origin-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 rounded">
+                        Discuss this <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-300 shadow-md hover:shadow-xl group flex flex-col">
+                    <div class="w-12 h-12 rounded-xl bg-rose-100 dark:bg-rose-950/50 flex items-center justify-center text-rose-600 dark:text-rose-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="bot" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">LLM Agents</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Agents that plan, call tools and APIs, and finish multi-step tasks.</p>
+                    <a href="#contact"
+                        class="mt-auto inline-flex items-center gap-1 text-sm font-bold text-rose-600 dark:text-rose-400 hover:scale-105 origin-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 rounded">
+                        Discuss this <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">Selected Projects</h2>
+                <p class="text-lg text-slate-500 dark:text-slate-400">
+                    Machine learning, NLP and agentic AI work, personal and for clients.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10" role="group" aria-label="Filter projects">
+                <button class="project-filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-brand-600 text-white shadow-sm hover:scale-105 transition-all duration-300" data-filter="all">All Projects</button>
+                <button class="project-filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-brand-500 hover:scale-105 transition-all duration-300" data-filter="ml">Machine Learning</button>
+                <button class="project-filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-brand-500 hover:scale-105 transition-all duration-300" data-filter="nlp">NLP</button>
+                <button class="project-filter-btn px-4 py-1.5 text-xs font-semibold rounded-full bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-brand-500 hover:scale-105 transition-all duration-300" data-filter="agents">RAG &amp; Agents</button>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- EDIT: replace every [bracketed] item with your real project details -->
+                <div class="project-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-xl hover:-translate-y-1.5 hover:scale-[1.02] hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 overflow-hidden flex flex-col h-full" data-category="ml">
+                    <div class="h-40 bg-gradient-to-tr from-brand-600/20 to-indigo-600/10 p-6 flex flex-col justify-between border-b border-slate-200 dark:border-slate-800/80 relative overflow-hidden">
+                        <span class="text-[10px] font-bold font-mono text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/40 px-2 py-1 rounded-md self-start">PERSONAL PROJECT</span>
+                        <h3 class="text-xl font-extrabold text-slate-800 dark:text-white relative z-10">[ML project name]</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            [One or two sentences: the problem, your approach, and the result.]
+                        </p>
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="text-[10px] font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md text-slate-600 dark:text-slate-300">[Tool 1]</span>
+                                <span class="text-[10px] font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md text-slate-600 dark:text-slate-300">[Tool 2]</span>
+                                <span class="text-[10px] font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md text-slate-600 dark:text-slate-300">[Tool 3]</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs pt-4 border-t border-slate-100 dark:border-slate-800">
+                                <span class="font-bold text-slate-400 dark:text-slate-500">[Key result]</span>
+                                <a href="https://github.com/codewithbilalshaheen-arc" target="_blank" rel="noopener noreferrer"
+                                    class="font-bold text-brand-500 hover:text-brand-600 hover:scale-105 transition-all duration-300 inline-flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 rounded">
+                                    GitHub <i data-lucide="external-link" class="w-3 h-3" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDIT: replace every [bracketed] item with your real project details -->
+                <div class="project-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-xl hover:-translate-y-1.5 hover:scale-[1.02] hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 overflow-hidden flex flex-col h-full" data-category="nlp">
+                    <div class="h-40 bg-gradient-to-tr from-emerald-600/20 to-teal-600/10 p-6 flex flex-col justify-between border-b border-slate-200 dark:border-slate-800/80 relative overflow-hidden">
+                        <span class="text-[10px] font-bold font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-1 rounded-md self-start">PERSONAL PROJECT</span>
+                        <h3 class="text-xl font-extrabold text-slate-800 dark:text-white relative z-10">[NLP project name]</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            [One or two sentences: the problem, your approach, and the result.]
+                        </p>
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="text-[10px] font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md text-slate-600 dark:text-slate-300">[Tool 1]</span>
+                                <span class="text-[10px] font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md text-slate-600 dark:text-slate-300">[Tool 2]</span>
+                                <span class="text-[10px] font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md text-slate-600 dark:text-slate-300">[Tool 3]</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs pt-4 border-t border-slate-100 dark:border-slate-800">
+                                <span class="font-bold text-slate-400 dark:text-slate-500">[Key result]</span>
+                                <a href="https://github.com/codewithbilalshaheen-arc" target="_blank" rel="noopener noreferrer"
+                                    class="font-bold text-emerald-500 hover:text-emerald-600 hover:scale-105 transition-all duration-300 inline-flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 rounded">
+                                    GitHub <i data-lucide="external-link" class="w-3 h-3" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDIT: replace every [bracketed] item with your real project details -->
+                <div class="project-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-xl hover:-translate-y-1.5 hover:scale-[1.02] hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 overflow-hidden flex flex-col h-full" data-category="agents">
+                    <div class="h-40 bg-gradient-to-tr from-indigo-600/20 to-purple-600/10 p-6 flex flex-col justify-between border-b border-slate-200 dark:border-slate-800/80 relative overflow-hidden">
+                        <span class="text-[10px] font-bold font-mono text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/60 px-2 py-1 rounded-md self-start">CLIENT PROJECT</span>
+                        <h3 class="text-xl font-extrabold text-slate-800 dark:text-white relative z-10">[RAG or agent project name]</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            [One or two sentences: the problem, your approach, and the result.]
+                        </p>
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="text-[10px] font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md text-slate-600 dark:text-slate-300">[Tool 1]</span>
+                                <span class="text-[10px] font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md text-slate-600 dark:text-slate-300">[Tool 2]</span>
+                                <span class="text-[10px] font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md text-slate-600 dark:text-slate-300">[Tool 3]</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs pt-4 border-t border-slate-100 dark:border-slate-800">
+                                <span class="font-bold text-slate-400 dark:text-slate-500">[Key result]</span>
+                                <a href="https://github.com/codewithbilalshaheen-arc" target="_blank" rel="noopener noreferrer"
+                                    class="font-bold text-purple-500 hover:text-purple-600 hover:scale-105 transition-all duration-300 inline-flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 rounded">
+                                    GitHub <i data-lucide="external-link" class="w-3 h-3" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Freelance & Education -->
+    <section id="experience"
+        class="py-20 bg-slate-100/50 dark:bg-slate-900/30 border-t border-slate-200 dark:border-slate-800/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">Freelance &amp; Education</h2>
+                <p class="text-lg text-slate-500 dark:text-slate-400">Where I've worked and what I'm studying.</p>
+            </div>
+
+            <div class="relative border-l border-slate-200 dark:border-slate-800 ml-4 md:ml-32 space-y-12">
+                <!-- EDIT: replace the bracketed freelance details with your real ones -->
+                <div class="relative pl-8 group hover:-translate-x-1 transition-all duration-300">
+                    <span class="hidden md:block absolute right-full mr-8 top-1.5 text-right text-xs font-bold text-slate-400 dark:text-slate-500 font-mono w-24">
+                        [YEAR] - PRESENT
+                    </span>
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 border-brand-500 bg-white dark:bg-slate-900 group-hover:scale-125 transition-all duration-300"></div>
+                    <div class="space-y-2">
+                        <span class="inline-block md:hidden text-xs font-bold text-brand-500 font-mono mb-1">[YEAR] - PRESENT</span>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white">Freelance Data Scientist</h3>
+                        <p class="text-sm font-semibold text-slate-500 dark:text-brand-400">[Platform or direct clients] | Remote</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">[What you deliver: for example ML models, NLP pipelines, RAG chatbots, in Python. Add one real result.]</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 group hover:-translate-x-1 transition-all duration-300">
+                    <span class="hidden md:block absolute right-full mr-8 top-1.5 text-right text-xs font-bold text-slate-400 dark:text-slate-500 font-mono w-24">
+                        [START] - [END]
+                    </span>
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 group-hover:scale-125 transition-all duration-300"></div>
+                    <div class="space-y-2">
+                        <span class="inline-block md:hidden text-xs font-bold text-brand-500 font-mono mb-1">[START] - [END]</span>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white">BS Data Science</h3>
+                        <p class="text-sm font-semibold text-slate-500 dark:text-brand-400">Air University | Islamabad, Pakistan</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">[Relevant coursework: for example machine learning, statistics, databases, NLP.]</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="max-w-3xl mx-auto bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden p-8 sm:p-12">
+                <div class="text-center space-y-4 mb-10">
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Have a data or AI project?</h2>
+                    <p class="text-slate-500 dark:text-slate-400">
+                        Tell me what you need and I'll reply by email. You can also
+                        <a href="assets/docs/Muhammad_Bilal_CV.pdf" download="Muhammad_Bilal_CV.pdf" class="font-semibold text-brand-600 dark:text-brand-400 underline underline-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 rounded">download my CV</a>.
+                    </p>
+                </div>
+
+                <form id="contact-form" class="space-y-6" novalidate>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-1.5">
+                            <label for="name" class="text-xs font-bold text-slate-500 dark:text-slate-400">FULL NAME</label>
+                            <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name"
+                                class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm text-slate-800 dark:text-white transition-all">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label for="email" class="text-xs font-bold text-slate-500 dark:text-slate-400">EMAIL ADDRESS</label>
+                            <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com"
+                                class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm text-slate-800 dark:text-white transition-all">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label for="subject" class="text-xs font-bold text-slate-500 dark:text-slate-400">SUBJECT</label>
+                        <input type="text" id="subject" name="subject" required placeholder="RAG chatbot for my documents"
+                            class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm text-slate-800 dark:text-white transition-all">
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label for="message" class="text-xs font-bold text-slate-500 dark:text-slate-400">MESSAGE</label>
+                        <textarea id="message" name="message" rows="5" required
+                            placeholder="Describe your project, your data and your timeline."
+                            class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none text-sm text-slate-800 dark:text-white transition-all"></textarea>
+                    </div>
+
+                    <div id="form-feedback" role="status" aria-live="polite" class="hidden p-4 rounded-xl text-sm font-semibold"></div>
+
+                    <button type="button" id="btn-send-message"
+                        class="w-full inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold rounded-xl text-white bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-600 shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950">
+                        <i data-lucide="send" class="w-4 h-4 mr-2" aria-hidden="true"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 py-12 transition-colors duration-300">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <span class="text-sm text-slate-500 dark:text-slate-400">
+                &copy; <span id="current-year"></span> Muhammad Bilal. Islamabad, Pakistan.
+            </span>
+            <div class="flex items-center gap-6 text-slate-400 dark:text-slate-500">
+                <a href="https://github.com/codewithbilalshaheen-arc" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                    class="hover:text-brand-500 hover:scale-125 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 rounded">
+                    <i data-lucide="github" class="w-5 h-5" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-bilal-002618367" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                    class="hover:text-brand-500 hover:scale-125 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 rounded">
+                    <i data-lucide="linkedin" class="w-5 h-5" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:codewithbilalshaheen@gmail.com" aria-label="Email"
+                    class="hover:text-brand-500 hover:scale-125 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 rounded">
+                    <i data-lucide="mail" class="w-5 h-5" aria-hidden="true"></i>
+                </a>
+                <a href="assets/docs/Muhammad_Bilal_CV.pdf" download="Muhammad_Bilal_CV.pdf" aria-label="Download CV (PDF)"
+                    class="hover:text-brand-500 hover:scale-125 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 rounded">
+                    <i data-lucide="file-down" class="w-5 h-5" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom cursor (decorative, mouse devices only) -->
+    <div id="cursor" class="cursor" aria-hidden="true">
+        <div class="cursor-inner"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
